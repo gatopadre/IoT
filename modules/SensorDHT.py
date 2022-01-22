@@ -1,4 +1,4 @@
-from Arduino import Arduino
+from modules.Arduino import Arduino
 '''
 Sensor must be conected this way:
     - if you look the sensor from the front the order is data, energy, ground

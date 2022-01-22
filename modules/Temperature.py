@@ -1,5 +1,5 @@
-from SensorDHT import SensorDHT
-from PostgreSQL import PostgreSQL
+from modules.SensorDHT import SensorDHT
+from modules.PostgreSQL import PostgreSQL
 
 
 class Temperature:
