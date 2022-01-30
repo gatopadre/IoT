@@ -4,6 +4,11 @@ from helpers import terminal_messages
 
 
 class Luminocity:
+    """
+    status:
+    - 1 light is not suficient
+    - 0 light is on
+    """
     luminocity = -1
 
     def get_luminocity(self):
@@ -16,8 +21,8 @@ class Luminocity:
         result = False
         database = PostgreSQL()
         luminocity = self.get_luminocity()
-        query = 'insert into luminocity(valor) values ({:.2f})'.format(float(luminocity))
+        query = 'insert into luminocity(valor) values ({})'.format(float(luminocity))
         if database.run_insert(query):
-            terminal_messages.show_message('success', 'Luminocity {:.2f}°C saved'.format(float(luminocity)))
+            terminal_messages.show_message('success', 'Luminocity {} saved'.format(float(luminocity)))
             result = True
         return result

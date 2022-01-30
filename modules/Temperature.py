@@ -18,6 +18,6 @@ class Temperature:
         temperature = self.get_temperature()
         query = 'insert into temperature(valor) values ({:.2f})'.format(float(temperature))
         if database.run_insert(query):
-            terminal_messages.show_message('success', 'Se ha guardado la temperatura {:.2f}°C'.format(float(temperature)))
+            terminal_messages.show_message('success', 'Temperature {:.2f}°C saved'.format(float(temperature)))
             result = True
         return result

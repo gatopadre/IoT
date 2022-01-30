@@ -17,6 +17,6 @@ class Humidity:
         get_humidity = self.get_humidity()
         query = 'insert into humidity(valor) values ({:.2f})'.format(float(get_humidity))
         if database.run_insert(query):
-            terminal_messages.show_message('success', 'Se ha guardado la humedad {:.2f}°C'.format(float(get_humidity)))
+            terminal_messages.show_message('success', 'Humidity {:.2f}% Saved'.format(float(get_humidity)))
             result = True
         return result
