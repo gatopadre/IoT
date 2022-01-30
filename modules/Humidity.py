@@ -1,12 +1,13 @@
 from modules.SensorDHT import SensorDHT
 from modules.PostgreSQL import PostgreSQL
-
+from helpers import terminal_messages
 
 class Humidity:
     humidity = -1
 
     def get_humidity(self):
         sensor = SensorDHT()
+        terminal_messages.show_message('info', 'Reading humidity')
         self.humidity = sensor.read_humidity()
         return self.humidity
 
@@ -14,8 +15,8 @@ class Humidity:
         result = False
         database = PostgreSQL()
         get_humidity = self.get_humidity()
-        query = 'insert into humidity(valor) values ({})'.format(int(get_humidity))
+        query = 'insert into humidity(valor) values ({:.2f})'.format(float(get_humidity))
         if database.run_insert(query):
-            print('Se ha guardado la humedad {}°C'.format(get_humidity))
+            terminal_messages.show_message('success', 'Se ha guardado la humedad {:.2f}°C'.format(float(get_humidity)))
             result = True
         return result

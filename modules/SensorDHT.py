@@ -1,4 +1,5 @@
 from modules.Arduino import Arduino
+from helpers import terminal_messages
 '''
 Sensor must be conected this way:
     - if you look the sensor from the front the order is data, energy, ground
@@ -17,7 +18,7 @@ class SensorDHT:
             arduino = Arduino()
             result = arduino.send_order(self.key_read_temp)
         except BaseException as exception:
-            print('An Exception has ocurred: {}'.format(exception))
+            terminal_messages.show_message('error', 'An Exception has ocurred: {}'.format(exception))
         return result
 
     def read_humidity(self):
@@ -26,5 +27,5 @@ class SensorDHT:
             arduino = Arduino()
             result = arduino.send_order(self.key_read_hum)
         except BaseException as exception:
-            print('An Exception has ocurred: {}'.format(exception))
+            terminal_messages.show_message('error', 'An Exception has ocurred: {}'.format(exception))
         return result

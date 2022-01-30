@@ -1,5 +1,6 @@
 from modules.SensorDHT import SensorDHT
 from modules.PostgreSQL import PostgreSQL
+from helpers import terminal_messages
 
 
 class Temperature:
@@ -7,6 +8,7 @@ class Temperature:
 
     def get_temperature(self):
         sensor = SensorDHT()
+        terminal_messages.show_message('info', 'Reading temperature')
         self.temperature = sensor.read_temperature()
         return self.temperature
 
@@ -14,8 +16,8 @@ class Temperature:
         result = False
         database = PostgreSQL()
         temperature = self.get_temperature()
-        query = 'insert into temperature(valor) values ({})'.format(int(temperature))
+        query = 'insert into temperature(valor) values ({:.2f})'.format(float(temperature))
         if database.run_insert(query):
-            print('Se ha guardado la temperatura {}°C'.format(temperature))
+            terminal_messages.show_message('success', 'Se ha guardado la temperatura {:.2f}°C'.format(float(temperature)))
             result = True
         return result

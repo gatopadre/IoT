@@ -18,9 +18,9 @@
 #define dhttype               DHT11 // tipo del modulo de temperatura y humedad
 DHT dht(dht_pin, dhttype);    // instanciando el modulo de temperatura y humedad
 
-int temperature = -1; // temperature var 
-int humidity = -1; // humidity var 
-int luminocity = -1; // luminocity var
+float temperature = -1; // temperature var
+float humidity = -1; // humidity var
+float luminocity = -1; // luminocity var
 
 /* configurations */
 void setup() {

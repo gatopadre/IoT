@@ -1,5 +1,5 @@
 import psycopg2
-
+from helpers import terminal_messages
 
 class PostgreSQL():
     host = 'localhost'
@@ -19,17 +19,20 @@ class PostgreSQL():
             )
             self.cursor = self.connection.cursor()
         except BaseException as exception:
-            print('Has ocurred an exception connecting to PostgreSql: {}'.format(exception))
+            terminal_messages.show_message('error', 'Has ocurred an exception connecting to PostgreSql: {}'.format(exception))
 
     def __del__(self):
+        terminal_messages.show_message('info', 'Closing postgres connection')
         self.cursor.close()
         self.connection.close()
 
     def run_query(self, query):
+        terminal_messages.show_message('info', 'Executing query')
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
     def run_insert(self, query):
+        terminal_messages.show_message('info', 'Executing insert')
         self.cursor.execute(query)
         self.connection.commit()
         return self.cursor.rowcount
