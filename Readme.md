@@ -10,6 +10,12 @@ CREATE TABLE public.humidity (
     CONSTRAINT humidity_pk PRIMARY KEY (id)
 );
 
+CREATE TABLE public.luminocity (
+	id int NOT NULL GENERATED ALWAYS AS IDENTITY,
+	valor numeric NOT NULL,
+	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT luminocity_pk PRIMARY KEY (id)
+);
 ## Posibles Errores
 ### ModuleNotFoundError: No module named 'serial'
 - falta el modulo serial, instalarlo desde pip o desde las configuraciones del 
