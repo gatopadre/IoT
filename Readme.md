@@ -1,13 +1,18 @@
 # IoT
+Ubuntu SO
 ## Installs
 ### - PySerial
 
+### - Git
+Instalacion de git:
+sudo apt-get install git
+
 ### - Postgres 
-- Instalacion de postgres: 
+Instalacion de postgres: 
 sudo apt install postgresql postgresql-contrib
-- Probar que quedo bien: 
+Probar que quedo bien: 
 sudo -u postgres psql
-- Para correr postgres dentro de python:
+Para correr postgres dentro de python:
 sudo apt-get install python3-dev 
 sudo apt-get install libpq-dev
 
