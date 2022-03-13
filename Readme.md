@@ -1,20 +1,63 @@
 # IoT
 Ubuntu SO
+
 ## Installs
-### - PySerial
+### - Python
+Instalar pip:
+sudo apt-get install python3-pip
+
+Instalar virtual env:
+pip3 install virtualenv
+
+Crear entorno virtual:
+virtualenv venv
+
+Instalar pyserial:
+pip install pyserial
+
+Instalar driver postgres:
+pip install psycopg2
 
 ### - Git
 Instalacion de git:
 sudo apt-get install git
 
+Crear una clave ssh:
+ssh-keygen -t ed25519 -C "sebastianzunigasaavedra@gmail.com"
+
 ### - Postgres 
 Instalacion de postgres: 
 sudo apt install postgresql postgresql-contrib
+
 Probar que quedo bien: 
 sudo -u postgres psql
+
 Para correr postgres dentro de python:
 sudo apt-get install python3-dev 
 sudo apt-get install libpq-dev
+
+Para crear base de datos:
+desde la consola de postgres: CREATE DATABASE arduino WITH ENCODING 'UTF8';
+
+### - SSH
+Instalacion server ssh:
+sudo apt-get install openssh-server
+
+Saber estado del servicio:
+sudo systemcls status ssh
+
+Autorizar en el firewall:
+sudo ufw allow ssh
+
+### - Arduino
+Para descargar arduino:
+wget https://downloads.arduino.cc/arduino-1.8.15-linux64.tar.xz
+
+Extaer el fichero:
+tar -xvf ./arduino-1.8.15-linux64.tar.xz
+
+Instalar arduino:
+
 
 ## Databases
 
